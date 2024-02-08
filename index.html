@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>freeboard</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="viewport" content = "width = device-width, initial-scale = 1, user-scalable = no" />
+
+    <link href="css/freeboard-dark.min.css" rel="stylesheet" />
+    <link href="css/nexpie.css" rel="stylesheet" />
+    <!--light css-->
+    <link rel="stylesheet" href= "css/font-awesome.min.css">
+
+    <!-- remote console debug logging -->
+    <!-- <script src="//console.re/connector.js" data-channel="1579-b771-8d8d"  id="consolerescript"></script> -->
+ 
+    <script src="js/head.js"></script>
+    <script type="text/javascript">
+        head.js("js/freeboard.thirdparty.min.js",
+                "js/freeboard_plugins.min.js",
+                "js/thirdparty_plugins.js",
+                "js/nexpie_plugins.min.js",
+
+                function(){
+                    $(function() {
+                        changeTheme('dark');
+                        freeboard.setPostMessageCallback((msg) => {
+                            if (parentcallback && typeof(parentcallback) == 'function') {
+                                parentcallback(msg)
+                            }
+                            if (typeof messageHandler != 'undefined') {
+                                if (typeof messageHandler.postMessage == 'function') {
+                                    messageHandler.postMessage(msg);
+                                }
+                            }
+                        });
+                        freeboard.initDashCredential(location.hash.substring(1));
+                        freeboard.loadFromGraphQL();
+                        freeboard.initialize(true);
+                    });
+                }
+        );
+
+        function _saveDashboard(confirm) {
+            freeboard.saveConfigToGraphQL(confirm);
+        }
+
+        function _addPane() {
+            freeboard.createPane();
+        }
+
+        function _toggleEditing() {
+            freeboard.toggleEditing();
+        }
+
+        function _setEditing(editing,animate) {
+            freeboard.setEditing(editing,animate);
+        }
+
+        function _resetDashboard(confirm) {
+            freeboard.resetDashboard(confirm, false);
+        }
+
+        let parentcallback = null;
+
+        function _setPostMessageCallback(_parentcallback) {
+            parentcallback = _parentcallback;
+        }
+
+        function _setDashCredential({credential, forcereload}) {
+            freeboard.setDashCredential({credential, forcereload});
+        }
+
+        function _isConfigSaved() {
+            return freeboard.isConfigSaved();
+        }
+
+        function _initSetting(option) {
+            freeboard.initSetting(option);
+            option.headless = true;
+            if (option.theme) {
+                changeTheme(option.theme);
+            }
+        }
+
+        function _getEditStatus(option) {
+            return freeboard.getEditStatus(option);
+        }
+
+        function _exportConfig() {
+            return freeboard.exportDashboard();
+        }
+
+        function _importConfig() {
+            return freeboard.loadDashboardFromLocalFile();
+        }
+
+        function closeDialogBox() {
+            return freeboard.closeDialogBox();
+        }
+
+        function widgetSettingCancel() {
+            return freeboard.widgetSettingCancel();
+        }
+
+        function widgetSettingSave() {
+            return freeboard.widgetSettingSave();
+        }
+
+        function jsEditorSave() {
+            return freeboard.jsEditorSave();
+        }
+                
+    </script>
+
+</head>
+<body style="margin:0; padding: 0">
+<div id="board-content">
+    <div class="gridster responsive-column-width"   >
+        <ul data-bind="grid: true" id="board-background">
+        </ul>
+    </div>
+</div>
+<header id="main-header" data-bind="if:false">
+    <div id="datasources">
+    </div>
+
+    <div class="theme-toggle">
+        <input
+            type="checkbox"
+            name="toggle"
+            class="theme-toggle-checkbox"
+            id="theme-toggle"
+            onclick="toggleTheme()"
+        />
+    </div> 
+</header>
+
+<div style="display:hidden">
+    <ul data-bind="template: { name: 'pane-template', foreach: panes}">
+    </ul>
+</div>
+
+<script type="text/html" id="pane-template">
+    <li data-bind="pane: true">
+        <header>
+            <h1 data-bind="text: title"></h1>
+            <ul class="board-toolbar pane-tools">
+                <li data-bind="pluginEditor: {operation: 'add', type: 'widget'}">
+                    <i class="fa fa-plus icon-white icon-pane"></i>
+                </li>
+                <li data-bind="pluginEditor: {operation: 'clone', type: 'pane'}">
+                    <i class="fa fa-clone icon-white icon-pane"></i>
+                </li>
+                <li data-bind="pluginEditor: {operation: 'edit', type: 'pane'}">
+                    <i class="fa fa-wrench icon-white icon-pane"></i>
+                </li>
+                <li data-bind="pluginEditor: {operation: 'delete', type: 'pane'}">
+                    <i class="fa fa-trash icon-white icon-pane"></i>
+                </li>
+            </ul>
+        </header>
+        <section data-bind="foreach: widgets">
+            <div class="sub-section" data-bind="css: 'sub-section-height-' + height()">
+                <div class="widget" data-bind="widget: true, css:{fillsize:fillSize}"></div>
+                <div class="sub-section-tools">
+                    <ul class="board-toolbar">
+
+                        <!-- ko if:$parent.widgetCanMoveUp($data) -->
+                        <li data-bind="click:$parent.moveWidgetUp"><i class="fa fa-chevron-up icon-white"></i></li>
+                        <!-- /ko -->
+                        <!-- ko if:$parent.widgetCanMoveDown($data) -->
+                        <li data-bind="click:$parent.moveWidgetDown"><i class="fa fa-chevron-down icon-white"></i></li>
+                        <!-- /ko -->
+                        <li data-bind="click:$parent.cloneWidget"><i class="fa fa-clone icon-white"></i></li>
+
+                        <li data-bind="pluginEditor: {operation: 'edit', type: 'widget'}"><i class="fa fa-wrench icon-white"></i></li>
+                        <li data-bind="pluginEditor: {operation: 'delete', type: 'widget'}"><i class="fa fa-trash icon-white"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </li>
+</script>
+
+</body>
+</html>

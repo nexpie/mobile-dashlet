@@ -1,0 +1,195 @@
+<input type=button value="SAVE"  onClick="getIframeWindow('freeboard')._saveDashboard(false)"></button>
+<input type=button value="RESET" onClick="getIframeWindow('freeboard')._resetDashboard(false)"></button>
+<input type=button value="ADD PANE" onClick="getIframeWindow('freeboard')._addPane()"></button>
+<input type=button value="EDIT ON" onClick="getIframeWindow('freeboard')._setEditing(true) "></button>
+<input type=button value="EDIT OFF" onClick="getIframeWindow('freeboard')._setEditing(false) "></button>
+
+<input type=button value="WIDGET SETTING CANCEL" onClick="getIframeWindow('freeboard').widgetSettingCancel() "></button>
+<input type=button value="WIDGET SETTING SAVE" onClick="getIframeWindow('freeboard').widgetSettingSave() "></button>
+
+
+<span id="ds_light" style="color: gray;" > ⬤ </span>
+<span id="ds_text" style="color: gray;" > ????????? </span>  
+<span id="ds_time" style="color: gray; margin-left:20px;" >---</span>
+
+--- <span id="ds_saved" style="color: blue;" > SAVED </span>  
+
+<br><br>
+
+<!--	_setDashCredential({credential:cred1, forcereload:true}
+	forcereload บน portal ให้เซตเป็น false ไว้ เพราะไม่น่าจะจำเป็นต้อง reload config ทุกครั้งที่ JWT หมดอายุ
+-->
+
+<input type=button value="DH161308942440 UserJWT (FT)" onClick="getIframeWindow('freeboard')._setDashCredential({credential:cred1, forcereload:true})"></button>
+<input type=button value="DH161308942440 UserJWT Error (FF)" onClick="getIframeWindow('freeboard')._setDashCredential({credential:cred1_error, forcereload:false})"></button>
+<input type=button value="DH161308942440 UserJWT Error (FT)" onClick="getIframeWindow('freeboard')._setDashCredential({credential:cred1_error, forcereload:true})"></button>
+<input type=button value="DH161308942440 UserJWT (FF)" onClick="getIframeWindow('freeboard')._setDashCredential({credential:cred1, forcereload:false})"></button>
+
+
+<input type=button value="DH161308942440 Secret" onClick="getIframeWindow('freeboard')._setDashCredential({credential:cred2, forcereload:true})"></button>
+
+<input type=button value="DH161308942440 TokenEditor" onClick="getIframeWindow('freeboard')._setDashCredential({credential:cred3, forcereload:true})"></button>
+<input type=button value="DH161308942440 TokenViewer" onClick="getIframeWindow('freeboard')._setDashCredential({credential:cred4, forcereload:true})"></button>
+
+<input type=button value="DH284506542022" onClick="getIframeWindow('freeboard')._setDashCredential({credential:cred5, forcereload:true})"></button>
+
+<input type=button value="NEXIIOT" onClick="getIframeWindow('freeboard')._setDashCredential({credential:cred6, forcereload:true})"></button>
+
+<input type=button value="NETPIE DH729781498963" onClick="getIframeWindow('freeboard')._setDashCredential({credential:cred7, forcereload:true})"></button>
+
+
+<br>
+<input type=button value="_getEditStatus()" onClick="alert(JSON.stringify(getIframeWindow('freeboard')._getEditStatus()))"></button>
+<input type=button value="Import CONFIG" onClick="getIframeWindow('freeboard')._importConfig() "></button>
+<input type=button value="Export CONFIG" onClick="getIframeWindow('freeboard')._exportConfig() "></button>
+
+
+<script>
+	let cred1 = {
+		"dashid": "DH161308942440",
+		"dashtoken": "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdHgiOnsidXNlcmlkIjoiVTIyNDMwOTEyMTc0MSIsImNsaWVudGlkIjoiNWI0NGM0ZDRkMWMwODY5ZmE0YjNlZDkyZTFmNzgzYjgifSwic2NvcGUiOltdLCJpYXQiOjE2NDk3NTE0NzcsIm5iZiI6MTY0OTc1MTQ3NywiZXhwIjozMDQ5ODM3ODc3LCJleHBpcmVJbiI6MTQwMDAwMDAwMCwianRpIjoiRXNmNWlETmgiLCJpc3MiOiJjZXI6dXNlcnRva2VuIn0.ufmO19Bbhmsc25gSlA955_ks9IYrSD1ZKl4pRK4GVg2D6WsdLocf0hDH4aC-3e3tsmRPtGTqRB0Av4tmDZmYbg",
+		"platform": "DEV" 
+	}
+
+	let cred1_error = {
+		"dashid": "DH161308942440",
+		"dashtoken": "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdHgiOnsidXNlcmlkIjoiVTIyNDMwOTEyMTc0MSIsImNsaWVudGlkIjoiNWI0NGM0ZDRkMWMwODY5ZmE0YjNlZDkyZTFmNzgzYjgifSwic2NvcGUiOltdLCJpYXQiOjE2NDk3NTE0NzcsIm5iZiI6MTY0OTc1MTQ3NywiZXhwIjozMDQ5ODM3ODc3LCJleHBpcmVJbiI6MTQwMDAwMDAwMCwianRpIjoiRXNmNWlETmgiLCJpc3MiOiJjZXI6dXNlcnRva2VuIn0.ufmO19Bbhmsc25gSlA955_ks9IYrSD1ZKl4pRK4GVg2D6WsdLocf0hDH4aC-3e3tsmRPtGTqRB0Av4tm000000",
+		"platform": "DEV" 
+	}
+
+
+	let cred2 = {
+		"dashid": "DH161308942440",
+		"dashtoken": "U78IVk2nNSIAzoacvr((jg5~bf6rnQg1",
+		"platform": "DEV" 
+	}
+
+	let cred3 = {
+		"dashid": "DH161308942440",
+		"dashtoken": "AQcCq3nQi1Im61YtmR5ZxHjZWi2Rs1f1",
+		"platform": "DEV" 
+	}
+
+	let cred4 = {
+		"dashid": "DH161308942440",
+		"dashtoken": "BQcCq3nQi1Im61YtmR5ZxHjZWi2Rs1f1",
+		"platform": "DEV" 
+	}
+
+	let cred5 = {
+		"dashid": "DH284506542022",
+		"dashtoken": "acvr((jg5U78IVk2nNSIAzobf6rntQg1",
+		"platform": "DEV" 
+	}
+
+	let cred6 = {
+		"dashid": "DH649576727607",
+		"dashtoken": "MgvSwnzq2q1qj2yU8kwGcumP51c1bBwU",
+		"platform": "NEXIIOT" 
+	}
+
+	let cred7 = {
+		"dashid": "DH729781498963",
+		"dashtoken": "j3XgjGvhdPugmnq75XV6CnLAwJdH1Xa5",
+		"platform": "NETPIE" 
+	}
+
+
+
+</script>
+
+
+
+
+<br><br>
+
+<div style="height:800px">
+	<iframe
+		id="freeboard"
+		width="100%"
+		height="100%"
+		src="index-headless-light#REVWOk15RGFzaDpESDE2MTMwODk0MjQ0MDpVNzhJVmsybk5TSUF6b2FjdnIoKGpnNX5iZjZyblFnMQ=="
+		style="border: none;",
+		frameBorder="0"
+		onload="onIFrameLoaded()"
+	></iframe>
+</div>
+
+<script>
+
+	function getIframeWindow(iframeID) {
+		  var doc;
+		  let iframe_object = document.getElementById(iframeID);
+		  if (iframe_object.contentWindow) {
+		    return iframe_object.contentWindow;
+		  }
+		  if (iframe_object.window) {
+		    return iframe_object.window;
+		  } 
+		  if (!doc && iframe_object.contentDocument) {
+		    doc = iframe_object.contentDocument;
+		  } 
+		  if (!doc && iframe_object.document) {
+		    doc = iframe_object.document;
+		  }
+		  if (doc && doc.defaultView) {
+		   return doc.defaultView;
+		  }
+		  if (doc && doc.parentWindow) {
+		    return doc.parentWindow;
+		  }
+		  return undefined;
+	}
+
+	function updateSaveStatus() {
+		let saved = getIframeWindow('freeboard')._isConfigSaved();    // _isConfigSaved() return true if config is ready saved , otherwise return false
+		console.log(saved)
+	}
+
+
+	function onIFrameLoaded() {
+		getIframeWindow('freeboard')._initSetting({
+			hideDialogBoxButton : false
+		});
+
+		getIframeWindow('freeboard')._setPostMessageCallback((msg) => {
+			let d;
+			try {
+				d = JSON.parse(msg);
+
+				switch (d.event) {
+					case 'DATA_UPDATED' :
+						let dt = new Date(Number(d.data))
+						document.getElementById('ds_time').innerHTML = dt;
+						break;
+
+					case 'DATASOURCE_STATUS_UPDATED' :
+						if (d.data.code) {
+							document.getElementById('ds_text').innerHTML = 'CONNECTED';
+							document.getElementById('ds_light').setAttribute('style', 'color:green');
+						}
+						else {
+							document.getElementById('ds_text').innerHTML = 'DISCONNECTED';
+							document.getElementById('ds_light').setAttribute('style', 'color:gray');
+						}
+						break;
+
+					case 'CONFIG_SAVED_UPDATED' :
+						document.getElementById('ds_saved').innerHTML = d.data.text;
+						break;
+
+					case 'ENTER_WIDGET_EDIT_MODE' :
+						console.log('ENTER_WIDGET_EDIT_MODE')
+						break;
+
+					case 'EXIT_WIDGET_EDIT_MODE' :
+						console.log('EXIT_WIDGET_EDIT_MODE')
+						break;
+
+				}
+			}
+			catch(e) {}
+		});
+		
+	}
+</script>
