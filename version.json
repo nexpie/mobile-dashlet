@@ -3,5 +3,5 @@
         "en": "Fixed issue when resize widget, improve dashboard performace and add new widget.",
         "th": "แก้ไขปัญหาเมื่อมีการเปลี่ยนแปลงขนาดวิดเจ็ต ปรัปปรุงการทำงานของแดชบอร์ดและเพิ่มวิดเจ็ตใหม่"
     },
-    "version": "1.4.7"
+    "version": "1.5.1"
 }
