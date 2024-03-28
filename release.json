@@ -1,7 +1,17 @@
 {
     "message": {
-        "en": "Fixed issue when resize widget, improve dashboard performace and add new widget.",
-        "th": "แก้ไขปัญหาเมื่อมีการเปลี่ยนแปลงขนาดวิดเจ็ต ปรัปปรุงการทำงานของแดชบอร์ดและเพิ่มวิดเจ็ตใหม่"
+        "en": "Fixed issue and improve dashboard performace.",
+        "th": "ปรัปปรุงการทำงานและแก้ไขปัญหาของแดชบอร์ด"
+    },
+    "bullets": {
+        "en": [
+            "New widgets: Line Chart, Bar Chart and new style of Guage.",
+            "Fixed: Issue grid broken when resizing widget"
+        ],
+        "th": [
+            "วิดเจ็ตใหม่: กราฟเส้น, กราฟแท่ง และ เกจแบบใหม่",
+            "แก้ไข: ตารางวิดเจ็ตมีปัญหาเมื่อมีการปรัปขนาดของวิดเจ็ต"
+        ]
     },
     "version": "1.5.2"
 }
