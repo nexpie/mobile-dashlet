@@ -5,13 +5,11 @@
     },
     "bullets": {
         "en": [
-            "New widgets: Line Chart, Bar Chart and new style of Guage.",
-            "Fixed: Issue grid broken when resizing widget"
+            "Fixed: change slider initial value to be a calculated field"
         ],
         "th": [
-            "วิดเจ็ตใหม่: กราฟเส้น, กราฟแท่ง และ เกจแบบใหม่",
-            "แก้ไข: ตารางวิดเจ็ตมีปัญหาเมื่อมีการปรัปขนาดของวิดเจ็ต"
+            "แก้ไข: ปรับปรุงฟิวด์ initial value ของสไลเดอร์ให้แบบเป็นตัวแปร"
         ]
     },
-    "version": "1.5.2"
+    "version": "1.5.3"
 }
