@@ -1,15 +1,21 @@
 {
-    "message": {
-        "en": "Fixed issue and improve dashboard performace.",
-        "th": "ปรัปปรุงการทำงานและแก้ไขปัญหาของแดชบอร์ด"
-    },
-    "bullets": {
-        "en": [
-            "Fixed: change slider initial value to be a calculated field"
-        ],
-        "th": [
-            "แก้ไข: ปรับปรุงฟิวด์ initial value ของสไลเดอร์ให้แบบเป็นตัวแปร"
-        ]
-    },
-    "version": "1.5.3"
+  "message": {
+    "en": "Major UI modernization with new map widget, improved form layouts, and enhanced color picker.",
+    "th": "ปรับปรุง UI ให้ทันสมัย พร้อมเพิ่ม map widget ใหม่ ปรับปรุง form layout และแก้ไข color picker"
+  },
+  "bullets": {
+    "en": [
+      "New: Added interactive map widget for location-based data visualization",
+      "Improved: Modernized overall UI design with contemporary styling",
+      "Enhanced: Redesigned form layouts for better user experience",
+      "Fixed: Completely rebuilt color picker component with improved functionality"
+    ],
+    "th": [
+      "ใหม่: เพิ่ม map widget สำหรับแสดงข้อมูลตามตำแหน่ง",
+      "ปรับปรุง: ปรับ UI ให้ทันสมัยด้วยการออกแบบที่ร่วมสมัย",
+      "ปรับปรุง: ออกแบบ form layout ใหม่เพื่อประสบการณ์ผู้ใช้ที่ดีขึ้น",
+      "แก้ไข: สร้าง color picker ใหม่ทั้งหมดพร้อมฟังก์ชันที่ปรับปรุงแล้ว"
+    ]
+  },
+  "version": "1.5.4"
 }
