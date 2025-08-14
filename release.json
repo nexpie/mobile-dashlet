@@ -8,14 +8,16 @@
       "New: Added interactive map widget for location-based data visualization",
       "Improved: Modernized overall UI design with contemporary styling",
       "Enhanced: Redesigned form layouts for better user experience",
-      "Fixed: Completely rebuilt color picker component with improved functionality"
+      "Fixed: Completely rebuilt color picker component with improved functionality",
+      "Fixed: fix for the blur overlay not disappearing after exiting edit mode"
     ],
     "th": [
       "ใหม่: เพิ่ม map widget สำหรับแสดงข้อมูลตามตำแหน่ง",
       "ปรับปรุง: ปรับ UI ให้ทันสมัยด้วยการออกแบบที่ร่วมสมัย",
       "ปรับปรุง: ออกแบบ form layout ใหม่เพื่อประสบการณ์ผู้ใช้ที่ดีขึ้น",
-      "แก้ไข: สร้าง color picker ใหม่ทั้งหมดพร้อมฟังก์ชันที่ปรับปรุงแล้ว"
+      "แก้ไข: สร้าง color picker ใหม่ทั้งหมดพร้อมฟังก์ชันที่ปรับปรุงแล้ว",
+      "แก้ไข: หลังจากออกจากโหมดแก้ไข overlay พื้นหลังไม่หายไป"
     ]
   },
-  "version": "1.5.4"
+  "version": "1.5.5"
 }
