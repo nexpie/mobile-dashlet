@@ -18,6 +18,194 @@
   --ant-input-active-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1);
 }
 
+/* Custom Widget Dropdown Light Theme Overrides */
+.dropdown-button {
+  background: #ffffff !important;
+  border: 2px solid #e0e0e0 !important;
+  color: #555 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.dropdown-button:hover {
+  background: #f8f9fa !important;
+  border-color: #bbb !important;
+}
+
+.custom-widget-dropdown.open .dropdown-button {
+  background: #f8f9fa !important;
+  border-color: var(--primary-color) !important;
+}
+
+.selected-option {
+  color: #333 !important;
+}
+
+.selected-icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 48px !important;
+  height: 48px !important;
+  margin-right: 16px !important;
+  font-size: 32px !important;
+  flex-shrink: 0 !important;
+}
+
+.selected-icon i {
+  font-size: inherit !important;
+}
+
+.selected-text {
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+}
+
+.dropdown-menu {
+  background: #ffffff !important;
+  border: 2px solid var(--primary-color) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  padding-top: 4px !important;
+  padding-bottom: 8px !important;
+  padding-right: 2px !important;
+  box-sizing: border-box !important;
+}
+
+.dropdown-option {
+  display: flex !important;
+  align-items: center !important;
+  border-bottom: 1px solid #f0f0f0 !important;
+  padding: 0px 16px !important;
+  min-height: 72px !important;
+}
+
+.dropdown-option:hover {
+  background: #f8f9fa !important;
+}
+
+.option-text {
+  color: #555 !important;
+  font-size: 16px !important;
+}
+
+.option-icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 48px !important;
+  height: 48px !important;
+  font-size: 32px !important;
+  margin-right: 16px !important;
+}
+
+.dropdown-option:hover .option-text {
+  color: #333 !important;
+}
+
+.dropdown-arrow {
+  color: #999 !important;
+}
+
+.custom-widget-dropdown.open .dropdown-arrow {
+  color: var(--primary-color) !important;
+}
+
+.setting-option-button {
+  background: #ffffff !important;
+  border: 1px solid #e0e0e0 !important;
+  color: #555 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+.setting-option-button.is-disabled {
+  cursor: not-allowed !important;
+  opacity: 0.6 !important;
+}
+
+.setting-option-button:hover {
+  border-color: var(--primary-color) !important;
+}
+
+.setting-option-button:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: var(--ant-input-active-shadow) !important;
+}
+
+.setting-option-dropdown.open .setting-option-button {
+  background: #f8f9fa !important;
+  border-color: var(--primary-color) !important;
+  color: #333 !important;
+}
+
+.setting-option-arrow {
+  color: #999 !important;
+}
+
+.setting-option-dropdown.open .setting-option-arrow {
+  color: var(--primary-color) !important;
+}
+
+.setting-option-menu {
+  background: #ffffff !important;
+  border: 1px solid var(--primary-color) !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12) !important;
+}
+
+.setting-option-item {
+  color: #555 !important;
+}
+
+.setting-option-item:hover,
+.setting-option-item:focus,
+.setting-option-item.selected {
+  background: rgba(6, 144, 242, 0.1) !important;
+  color: #1f1f1f !important;
+}
+
+.setting-number-input {
+  background: #ffffff !important;
+  border: 1px solid #e0e0e0 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.setting-number-input.is-focused {
+  border-color: var(--primary-color) !important;
+  box-shadow: var(--ant-input-active-shadow) !important;
+}
+
+.setting-number-field {
+  color: #333 !important;
+}
+
+.setting-number-button {
+  background: rgba(0, 0, 0, 0.04) !important;
+  color: #666 !important;
+  width: 32px !important;
+  height: 32px !important;
+  flex: 0 0 32px !important;
+}
+
+.setting-number-button:hover,
+.setting-number-button:focus-visible {
+  background: rgba(6, 144, 242, 0.12) !important;
+  color: #1f1f1f !important;
+}
+
+/* Light theme scrollbar */
+.dropdown-menu::-webkit-scrollbar-track {
+  background: #f8f9fa !important;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background: #ccc !important;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb:hover {
+  background: #bbb !important;
+}
+
 #admin-bar {
   background-color: var(--primary-color);
 }

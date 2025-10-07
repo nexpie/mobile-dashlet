@@ -1,23 +1,19 @@
 {
   "message": {
-    "en": "Major UI modernization with new map widget, improved form layouts, and enhanced color picker.",
-    "th": "ปรับปรุง UI ให้ทันสมัย พร้อมเพิ่ม map widget ใหม่ ปรับปรุง form layout และแก้ไข color picker"
+    "en": "Enhanced datasource system with FILE support and improved image handling capabilities.",
+    "th": "เพิ่มระบบ FILE datasource และปรับปรุงการแสดงผลรูปภาพพร้อม UI ที่ดีขึ้น"
   },
   "bullets": {
     "en": [
-      "New: Added interactive map widget for location-based data visualization",
-      "Improved: Modernized overall UI design with contemporary styling",
-      "Enhanced: Redesigned form layouts for better user experience",
-      "Fixed: Completely rebuilt color picker component with improved functionality",
-      "Fixed: fix for the blur overlay not disappearing after exiting edit mode"
+      "New: Added FILE datasource support",
+      "Enhanced: Image widget",
+      "Improved: Modernized UI design for enhanced user experience"
     ],
     "th": [
-      "ใหม่: เพิ่ม map widget สำหรับแสดงข้อมูลตามตำแหน่ง",
-      "ปรับปรุง: ปรับ UI ให้ทันสมัยด้วยการออกแบบที่ร่วมสมัย",
-      "ปรับปรุง: ออกแบบ form layout ใหม่เพื่อประสบการณ์ผู้ใช้ที่ดีขึ้น",
-      "แก้ไข: สร้าง color picker ใหม่ทั้งหมดพร้อมฟังก์ชันที่ปรับปรุงแล้ว",
-      "แก้ไข: หลังจากออกจากโหมดแก้ไข overlay พื้นหลังไม่หายไป"
+      "ใหม่: เพิ่มการรองรับ FILE datasource",
+      "ปรับปรุง: Image widget",
+      "ปรับปรุง: ปรับ UI ให้ดูทันสมัยและใช้งานง่ายขึ้น"
     ]
   },
-  "version": "1.5.5"
+  "version": "1.5.6"
 }
