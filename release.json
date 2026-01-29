@@ -1,19 +1,15 @@
 {
   "message": {
-    "en": "Enhanced datasource system with FILE support and improved image handling capabilities.",
-    "th": "เพิ่มระบบ FILE datasource และปรับปรุงการแสดงผลรูปภาพพร้อม UI ที่ดีขึ้น"
+    "en": "Bug fixes and improvements",
+    "th": "แก้ไขปัญหาและปรับปรุง"
   },
   "bullets": {
     "en": [
-      "New: Added FILE datasource support",
-      "Enhanced: Image widget",
-      "Improved: Modernized UI design for enhanced user experience"
+      "Improved: Fixed toggle button issue where it cannot be clicked when state is not defined."
     ],
     "th": [
-      "ใหม่: เพิ่มการรองรับ FILE datasource",
-      "ปรับปรุง: Image widget",
-      "ปรับปรุง: ปรับ UI ให้ดูทันสมัยและใช้งานง่ายขึ้น"
+      "ปรับปรุง: แก้บัก toggle ไม่สามารถกดได้แม้ไม่กำหนด state"
     ]
   },
-  "version": "1.5.6"
+  "version": "1.6.4"
 }

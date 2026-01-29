@@ -61,6 +61,12 @@
 }
 
 .dropdown-menu {
+  position: absolute !important;
+  top: calc(100% - 2px) !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  min-width: 100% !important;
   background: #ffffff !important;
   border: 2px solid var(--primary-color) !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
@@ -191,6 +197,12 @@
 .setting-number-button:focus-visible {
   background: rgba(6, 144, 242, 0.12) !important;
   color: #1f1f1f !important;
+}
+
+/* Modal widget type container for light theme */
+.modal-widget-type-container {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #e0e0e0 !important;
 }
 
 /* Light theme scrollbar */
@@ -739,4 +751,67 @@ ul.tagit li.tagit-choice.remove {
 /* ========== CHART ========== */
 .apexcharts-tooltip {
   color: #000;
+}
+
+/* ========== TOOLS CONTAINER (Pane Tools) - Light Theme ========== */
+.tools-container {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  /* border: 1px solid rgba(15, 23, 42, 0.12) !important; */
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important; */
+}
+
+.tools-container button {
+  background-color: #e3f2fd !important;
+  border: none !important;
+}
+
+.tools-container button:hover {
+  background-color: #bbdefb !important;
+}
+
+.tools-container button:active {
+  background-color: #90caf9 !important;
+}
+
+.tools-container button i {
+  color: #2196f3 !important;
+}
+
+/* ========== WIDGET TOOLS BUTTONS (Sub-Section Tools) ========== */
+.widget-tools-buttons {
+  /* background: rgba(255, 255, 255, 0.95) !important; */
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.widget-tools-buttons button {
+  background-color: #e1f5fe !important;
+  border: none !important;
+  color: #0690f2 !important;
+}
+
+.widget-tools-buttons button:hover {
+  background-color: #b3e5fc !important;
+}
+
+.widget-tools-buttons button:active {
+  background-color: #81d4fa !important;
+}
+
+.widget-tools-buttons button i {
+  color: #0690f2 !important;
+}
+
+/* ========== SUB-SECTION TOOLS (Existing Board Toolbar Override) ========== */
+.sub-section-tools .board-toolbar li {
+  background-color: #e1f5fe !important;
+  border: none !important;
+}
+
+.sub-section-tools .board-toolbar li:hover {
+  background-color: #b3e5fc !important;
+}
+
+.sub-section-tools .board-toolbar li i {
+  color: #0690f2 !important;
 }

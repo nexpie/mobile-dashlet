@@ -2157,9 +2157,11 @@ body {
   margin: auto;
   border-radius: 8px;
 
+  height: 80vh;
   max-height: 90%;
-  min-width: 50%;
-  overflow-y: auto;
+  min-width: 60%;
+  max-width: 900px;
+  overflow-y: hidden;
 
   display: flex;
   flex-direction: column;
@@ -2213,9 +2215,20 @@ body {
   display: inline-block;
 }
 
+.modal-widget-type-container {
+  padding: 0 25px;
+  background-color: #2a2a2a;
+  border-bottom: 1px solid #3d3d3d;
+  flex-shrink: 0;
+  z-index: 5000;
+}
+
 .modal section {
-  padding: 0 25px 1em;
+  padding: 1em 25px 1em;
   flex: 1;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 @media screen and (max-width: 900px) {
   .modal {
@@ -2223,6 +2236,12 @@ body {
     height: 100dvh;
     max-height: 100dvh !important;
     border-radius: 0;
+  }
+
+  .modal section {
+    /* Ensure inputs can scroll into view properly on mobile */
+    scroll-padding-top: 20px;
+    scroll-padding-bottom: 20px;
   }
 }
 
@@ -2276,6 +2295,7 @@ body {
 
 #plugin-description {
   margin-bottom: 15px;
+  word-break: break-word;
 }
 
 .align-right {
@@ -2309,7 +2329,7 @@ input[type="color"],
   display: inline-block;
   height: 28px;
   padding: 4px 8px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   color: #d3d4d4;
   vertical-align: middle;
@@ -2533,6 +2553,20 @@ a:focus {
   /*text-transform: uppercase;*/
 }
 
+.gridster header.pane-header--hidden {
+  height: 0;
+  padding: 0;
+  border: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+.gridster header.pane-header--hidden > h1,
+.gridster header.pane-header--hidden > .pane-tools {
+  display: none !important;
+}
+
 header h1 {
   font-size: 12px;
   white-space: nowrap;
@@ -2559,6 +2593,51 @@ header h1 {
   position: relative;
   padding-top: 0px;
   margin-top: -5px;
+}
+
+/* Edit mode visual indicator - border on body */
+body {
+  box-sizing: border-box;
+  border: 5px solid transparent;
+  /* border-radius: 4px; */
+  transition: border-color 0.3s ease-in-out;
+}
+
+body.edit-mode-active {
+  border-color: #2196f3;
+}
+
+/* Edit mode label at bottom center */
+.edit-mode-label {
+  position: fixed;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  background: #2196f3 border-box;
+  color: white;
+  padding: 4px 16px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  z-index: 1000;
+  line-height: 1.4;
+  opacity: 0;
+
+  --r: 6px;
+
+  border-inline: var(--r) solid #0000;
+  border-radius: calc(2 * var(--r)) calc(2 * var(--r)) 0 0 / var(--r);
+  mask: radial-gradient(var(--r) at var(--r) 0, #0000 98%, #000 101%)
+      calc(-1 * var(--r)) 100%/100% var(--r) repeat-x,
+    conic-gradient(#000 0 0) padding-box;
+
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.edit-mode-label.visible {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
 }
 
 #main-header {
@@ -2593,7 +2672,8 @@ header h1 {
 }
 
 .widget {
-  padding: 5px;
+  padding: 0;
+  margin: 0;
   height: 100%;
   width: 100%;
   -moz-box-sizing: border-box;
@@ -2612,15 +2692,88 @@ header h1 {
   display: none;
   z-index: 2;
 
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .sub-section-tools {
   top: 0px;
   right: 0px;
+
+  /* new style */
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
   position: absolute;
   display: none;
+  z-index: 2;
+}
+
+.sub-section-tools ul.board-toolbar {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.widget-tools-buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.widget-tools-buttons button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  width: 24px;
+  min-width: 24px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 6px;
+  background-color: rgba(75, 75, 75, 0.8);
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.25s linear;
+}
+
+.widget-tools-buttons button:hover {
+  background-color: rgba(75, 75, 75, 1);
+}
+
+.widget-tools-buttons button:active {
+  background-color: rgba(60, 60, 60, 1);
+}
+
+.widget-tools-buttons button:focus-visible {
+  outline: 2px solid #0690f2;
+  outline-offset: 2px;
+}
+
+.widget-tools-buttons button i {
+  font-size: 12px;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive touch targets for mobile */
+@media (max-width: 768px) {
+  .widget-tools-buttons button {
+    height: 32px;
+    width: 32px;
+    min-width: 32px;
+  }
+
+  .widget-tools-buttons button i {
+    font-size: 14px;
+  }
 }
 
 .datasource-edit-btn {
@@ -2685,13 +2838,12 @@ header h1 {
 }
 
 .sub-section {
-  padding: 0;
+  padding: 3px 8px 0px 8px;
   border-bottom: solid 1px #363636;
   position: relative;
   overflow: hidden;
-  /* widget pane padding */
-  padding-left: 5px;
-  padding-right: 5px;
+  border-radius: 6px 6px 0 0;
+  /* box-sizing: border-box; */
 }
 
 .sub-section-height-1 {
@@ -2815,6 +2967,10 @@ ol {
   padding: 0px;
   margin: 0px;
   overflow: hidden;
+
+  /* new style */
+  /* overflow: visible; */
+
   z-index: auto;
   -webkit-touch-callout: text;
   -webkit-user-select: text;
@@ -3456,6 +3612,14 @@ ol {
   width: 100%;
 }
 
+/* Widget type selector in fixed container - never scrolls */
+#setting-row-plugin-types {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
 .slider-wrapper {
   float: left;
   width: 100%;
@@ -3592,6 +3756,22 @@ ul.board-toolbar.vertical {
   height: 14px;
 }
 
+/* new style */
+/* .board-toolbar li {
+  color: #b88f51;
+  cursor: pointer;
+  margin: 0px 3px;
+  background-color: rgba(75, 75, 75, 0);
+  padding: 8px;
+  height: 32px;
+  min-width: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  list-style: none;
+} */
+
 .board-toolbar.vertical li {
   float: none;
 }
@@ -3613,6 +3793,14 @@ ul.board-toolbar.vertical {
 	font-size: 30px;
 }
 */
+
+/* new style */
+/* .board-toolbar li i {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  color: white;
+} */
 
 .board-toolbar li i {
   float: left;
@@ -4689,7 +4877,7 @@ textarea:-moz-placeholder {
   border: 1px solid rgb(240, 236, 243);
   border-radius: 4px;
   background: rgb(250, 249, 251);
-  font-size: 14px;
+  font-size: 16px;
   padding: 4px calc(7px);
   margin: 4px;
 }
@@ -5066,6 +5254,7 @@ textarea:-moz-placeholder {
 }
 .array-input {
   width: -webkit-fill-available;
+  font-size: 16px;
 }
 .array-add-btn {
   padding: 6px 12px;
@@ -5089,6 +5278,7 @@ textarea:-moz-placeholder {
   width: 100%;
   margin-top: 8px;
   max-width: 100%;
+  overflow: visible;
 }
 
 .dropdown-button {
@@ -5166,7 +5356,12 @@ textarea:-moz-placeholder {
 }
 
 .dropdown-menu {
-  position: fixed;
+  position: absolute;
+  top: calc(100% - 2px);
+  left: 0;
+  right: 0;
+  width: 100%;
+  min-width: 100%;
   background: #2a2a2a;
   border: 2px solid #0690f2;
   border-top: none;
@@ -5323,7 +5518,7 @@ textarea:-moz-placeholder {
   background: transparent;
   border: none;
   color: #fff;
-  font-size: 14px;
+  font-size: 16px;
   text-align: left;
   min-width: 0;
 }
@@ -5468,4 +5663,76 @@ textarea:-moz-placeholder {
     font-size: 18px;
     margin-right: 10px;
   }
+}
+
+/* Ensure all inputs have consistent 16px font-size to prevent mobile zoom */
+.modal input,
+.modal textarea,
+.modal select {
+  font-size: 16px !important;
+}
+
+.tools-container {
+  display: none;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  background-color: rgba(39, 39, 39, 0.95);
+  /* border: 1px solid rgba(255, 255, 255, 0.1); */
+  border-radius: 6px;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.gridster li:hover .tools-container {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
+
+.tools-container button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  width: 24px;
+  min-width: 24px;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  /* border: 1px solid rgba(255, 255, 255, 0.15); */
+  border-radius: 6px;
+  background-color: rgba(75, 75, 75, 0.8);
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.tools-container button:hover {
+  background-color: rgba(33, 150, 243, 0.2);
+  border-color: #2196f3;
+}
+
+.tools-container button:active {
+  background-color: rgba(33, 150, 243, 0.3);
+}
+
+.tools-container button:focus-visible {
+  outline: 2px solid #2196f3;
+  outline-offset: 2px;
+}
+
+.tools-container button i {
+  font-size: 12px;
+  color: #ffffff;
 }
