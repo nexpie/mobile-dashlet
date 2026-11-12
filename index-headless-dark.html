@@ -77,6 +77,10 @@
         freeboard.setDashCredential({ credential, forcereload });
       }
 
+      function _reloadDashboard(rev) {
+        freeboard.reloadDashboard(rev);
+      }
+
       function _isConfigSaved() {
         return freeboard.isConfigSaved();
       }

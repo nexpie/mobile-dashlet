@@ -5,11 +5,15 @@
   },
   "bullets": {
     "en": [
-      "Improved: Fixed toggle button issue where it cannot be clicked when state is not defined."
+      "Fixed widget action settings.",
+      "Improved mapping between datasources and widgets.",
+      "Improved the image widget."
     ],
     "th": [
-      "ปรับปรุง: แก้บัก toggle ไม่สามารถกดได้แม้ไม่กำหนด state"
+      "แก้ปัญหาการตั้งค่า Widget Action",
+      "ปรับปรุงการจับคู่ระหว่าง Datasource กับ Widget",
+      "ปรับปรุง Image Widget"
     ]
   },
-  "version": "1.6.4"
+  "version": "1.6.5"
 }

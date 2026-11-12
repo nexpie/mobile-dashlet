@@ -9,10 +9,10 @@
 
 
 <span id="ds_light" style="color: gray;" > ⬤ </span>
-<span id="ds_text" style="color: gray;" > ????????? </span>  
+<span id="ds_text" style="color: gray;" > ????????? </span>
 <span id="ds_time" style="color: gray; margin-left:20px;" >---</span>
 
---- <span id="ds_saved" style="color: blue;" > SAVED </span>  
+--- <span id="ds_saved" style="color: blue;" > SAVED </span>
 
 <br><br>
 
@@ -38,6 +38,9 @@
 <input type=button value="NETPIE DH729781498963" onClick="getIframeWindow('freeboard')._setDashCredential({credential:cred7, forcereload:true})"></button>
 
 
+<input type=button value="DEV DevDash(DH039129354906)" onClick="getIframeWindow('freeboard')._setDashCredential({credential:cred8, forcereload:true})"></button>
+
+
 <br>
 <input type=button value="_getEditStatus()" onClick="alert(JSON.stringify(getIframeWindow('freeboard')._getEditStatus()))"></button>
 <input type=button value="Import CONFIG" onClick="getIframeWindow('freeboard')._importConfig() "></button>
@@ -48,51 +51,59 @@
 	let cred1 = {
 		"dashid": "DH161308942440",
 		"dashtoken": "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdHgiOnsidXNlcmlkIjoiVTIyNDMwOTEyMTc0MSIsImNsaWVudGlkIjoiNWI0NGM0ZDRkMWMwODY5ZmE0YjNlZDkyZTFmNzgzYjgifSwic2NvcGUiOltdLCJpYXQiOjE2NDk3NTE0NzcsIm5iZiI6MTY0OTc1MTQ3NywiZXhwIjozMDQ5ODM3ODc3LCJleHBpcmVJbiI6MTQwMDAwMDAwMCwianRpIjoiRXNmNWlETmgiLCJpc3MiOiJjZXI6dXNlcnRva2VuIn0.ufmO19Bbhmsc25gSlA955_ks9IYrSD1ZKl4pRK4GVg2D6WsdLocf0hDH4aC-3e3tsmRPtGTqRB0Av4tmDZmYbg",
-		"platform": "DEV" 
+		"platform": "DEV"
 	}
 
 	let cred1_error = {
 		"dashid": "DH161308942440",
 		"dashtoken": "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdHgiOnsidXNlcmlkIjoiVTIyNDMwOTEyMTc0MSIsImNsaWVudGlkIjoiNWI0NGM0ZDRkMWMwODY5ZmE0YjNlZDkyZTFmNzgzYjgifSwic2NvcGUiOltdLCJpYXQiOjE2NDk3NTE0NzcsIm5iZiI6MTY0OTc1MTQ3NywiZXhwIjozMDQ5ODM3ODc3LCJleHBpcmVJbiI6MTQwMDAwMDAwMCwianRpIjoiRXNmNWlETmgiLCJpc3MiOiJjZXI6dXNlcnRva2VuIn0.ufmO19Bbhmsc25gSlA955_ks9IYrSD1ZKl4pRK4GVg2D6WsdLocf0hDH4aC-3e3tsmRPtGTqRB0Av4tm000000",
-		"platform": "DEV" 
+		"platform": "DEV"
 	}
 
 
 	let cred2 = {
 		"dashid": "DH161308942440",
 		"dashtoken": "U78IVk2nNSIAzoacvr((jg5~bf6rnQg1",
-		"platform": "DEV" 
+		"platform": "DEV"
 	}
 
 	let cred3 = {
 		"dashid": "DH161308942440",
 		"dashtoken": "AQcCq3nQi1Im61YtmR5ZxHjZWi2Rs1f1",
-		"platform": "DEV" 
+		"platform": "DEV"
 	}
 
 	let cred4 = {
 		"dashid": "DH161308942440",
 		"dashtoken": "BQcCq3nQi1Im61YtmR5ZxHjZWi2Rs1f1",
-		"platform": "DEV" 
+		"platform": "DEV"
 	}
 
 	let cred5 = {
 		"dashid": "DH284506542022",
 		"dashtoken": "acvr((jg5U78IVk2nNSIAzobf6rntQg1",
-		"platform": "DEV" 
+		"platform": "DEV"
 	}
 
 	let cred6 = {
 		"dashid": "DH649576727607",
 		"dashtoken": "MgvSwnzq2q1qj2yU8kwGcumP51c1bBwU",
-		"platform": "NEXIIOT" 
+		"platform": "NEXIIOT"
 	}
 
 	let cred7 = {
 		"dashid": "DH729781498963",
 		"dashtoken": "j3XgjGvhdPugmnq75XV6CnLAwJdH1Xa5",
-		"platform": "NETPIE" 
+		"platform": "NETPIE"
 	}
+
+
+	let cred8 = {
+		"dashid": "DH039129354906",
+		"dashtoken": "fYfXgBk4xqQokhbCxuqT92Ru9MHfpBJ9",
+		"platform": "DEV"
+	}
+
 
 
 
@@ -125,10 +136,10 @@
 		  }
 		  if (iframe_object.window) {
 		    return iframe_object.window;
-		  } 
+		  }
 		  if (!doc && iframe_object.contentDocument) {
 		    doc = iframe_object.contentDocument;
-		  } 
+		  }
 		  if (!doc && iframe_object.document) {
 		    doc = iframe_object.document;
 		  }
@@ -144,6 +155,20 @@
 	function updateSaveStatus() {
 		let saved = getIframeWindow('freeboard')._isConfigSaved();    // _isConfigSaved() return true if config is ready saved , otherwise return false
 		console.log(saved)
+	}
+
+	function reloadDashboardFromCloudUpdate(eventData) {
+		let freeboardWindow = getIframeWindow('freeboard');
+		if (!freeboardWindow || typeof freeboardWindow._reloadDashboard !== 'function') {
+			return;
+		}
+
+		if (!freeboardWindow._isConfigSaved()) {
+			console.warn('Skip dashboard reload because local config has unsaved changes.', eventData);
+			return;
+		}
+
+		freeboardWindow._reloadDashboard(eventData && eventData.data ? eventData.data.rev : undefined);
 	}
 
 
@@ -182,14 +207,18 @@
 						console.log('ENTER_WIDGET_EDIT_MODE')
 						break;
 
-					case 'EXIT_WIDGET_EDIT_MODE' :
-						console.log('EXIT_WIDGET_EDIT_MODE')
-						break;
+						case 'EXIT_WIDGET_EDIT_MODE' :
+							console.log('EXIT_WIDGET_EDIT_MODE')
+							break;
 
-				}
+						case 'DASH_CONFIG_UPDATED' :
+							reloadDashboardFromCloudUpdate(d)
+							break;
+
+					}
 			}
 			catch(e) {}
 		});
-		
+
 	}
 </script>

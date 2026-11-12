@@ -16,6 +16,10 @@
   --background-color-hover: rgba(255, 255, 255, 0.2);
   --border-color-white: #fff;
   --ant-input-active-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1);
+  --array-card-border-color: #e0e0e0;
+  --array-add-border-color: var(--border-color-neutral);
+  --array-add-hover-border-color: var(--primary-color);
+  --array-add-hover-color: var(--primary-color);
 }
 
 /* Custom Widget Dropdown Light Theme Overrides */
@@ -197,6 +201,37 @@
 .setting-number-button:focus-visible {
   background: rgba(6, 144, 242, 0.12) !important;
   color: #1f1f1f !important;
+}
+
+.action-builder {
+  background: #ffffff !important;
+  border-color: #e0e0e0 !important;
+}
+
+.action-array-wrapper {
+  background: #ffffff !important;
+  border-color: #d9d9d9 !important;
+}
+
+.action-array-wrapper .array-card {
+  background: #fafafa !important;
+  border-color: #e0e0e0 !important;
+}
+
+.action-array-wrapper .array-add-btn {
+  background: #fafafa !important;
+}
+
+.action-builder-sentence {
+  color: #555 !important;
+}
+
+.action-builder-label {
+  color: #666 !important;
+}
+
+.action-setting-row .action-target-prefix {
+  color: var(--primary-color) !important;
 }
 
 /* Modal widget type container for light theme */
