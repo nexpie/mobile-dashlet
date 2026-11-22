@@ -1,21 +1,19 @@
 {
   "message": {
-    "en": "Smoother editing and a cleaner look",
-    "th": "ปรับปรุงการแก้ไขให้ลื่นไหลและหน้าตาที่สะอาดขึ้น"
+    "en": "Cleaner edit tools",
+    "th": "ปุ่มแก้ไขที่ดูสะอาดและเข้ากับธีมมากขึ้น"
   },
   "bullets": {
     "en": [
-      "Editing panes and widgets are now separate modes.",
-      "Panes without a title no longer show a header bar, so dashboards look more compact.",
-      "Charts show the time axis and legend right away, with cleaner lines when there is a lot of data.",
-      "Gauges show a placeholder until data arrives instead of sweeping up from zero."
+      "Edit buttons in the dark theme now use the same soft, rounded look as the light theme.",
+      "Pane edit buttons are orange and widget edit buttons are white, so they are easy to tell apart.",
+      "Edit buttons are smaller and closer together, leaving more room for your widgets."
     ],
     "th": [
-      "แยกโหมดแก้ไข Pane และ Widget ออกจากกัน",
-      "Pane ที่ไม่มีชื่อจะไม่แสดงแถบหัวอีกต่อไป ทำให้ Dashboard กระชับขึ้น",
-      "กราฟแสดงแกนเวลาและ Legend ทันที และเส้นกราฟสะอาดขึ้นเมื่อมีข้อมูลจำนวนมาก",
-      "Gauge แสดงค่าว่างไว้ก่อนจนกว่าข้อมูลจะมา แทนการไล่ค่าขึ้นจากศูนย์"
+      "ปุ่มแก้ไขในธีมมืดมีลักษณะโปร่งนุ่มและขอบมนเหมือนธีมสว่าง",
+      "ปุ่มแก้ไข Pane เป็นสีส้ม และปุ่มแก้ไข Widget เป็นสีขาว แยกออกจากกันได้ง่าย",
+      "ปุ่มแก้ไขเล็กลงและชิดกันมากขึ้น เหลือพื้นที่ให้ Widget มากขึ้น"
     ]
   },
-  "version": "1.7.0"
+  "version": "1.7.1"
 }

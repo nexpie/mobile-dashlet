@@ -876,7 +876,7 @@ body.edit-mode-active {
   justify-content: center;
   cursor: pointer;
   border-radius: 8px;
-  background-color: #fff3e0;
+  background-color: rgba(128, 128, 128, 0.35);
   color: #f57c00;
   font-size: 12px;
   
@@ -885,7 +885,7 @@ body.edit-mode-active {
 }
 
 .pane-enter:hover {
-  background-color: #ffe0b2;
+  background-color: rgba(160, 160, 160, 0.5);
   opacity: 1;
 }
 
@@ -935,32 +935,32 @@ body.editing .gridster header:not(.pane-header--hidden) h1 {
   flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 2px;
 }
 
 .widget-tools-buttons button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 24px;
-  width: 24px;
-  min-width: 24px;
+  height: 22px;
+  width: 22px;
+  min-width: 22px;
   padding: 0;
   margin: 0;
   border: none;
-  border-radius: 6px;
-  background-color: rgba(75, 75, 75, 0.8);
+  border-radius: 8px;
+  background-color: rgba(128, 128, 128, 0.35);
   cursor: pointer;
   outline: none;
   transition: background-color 0.25s linear;
 }
 
 .widget-tools-buttons button:hover {
-  background-color: rgba(75, 75, 75, 1);
+  background-color: rgba(160, 160, 160, 0.5);
 }
 
 .widget-tools-buttons button:active {
-  background-color: rgba(60, 60, 60, 1);
+  background-color: rgba(160, 160, 160, 0.65);
 }
 
 .widget-tools-buttons button:focus-visible {
@@ -4253,13 +4253,35 @@ body.editing .pane-editing .pane-tools {
 }
 
 
+#board-content .board-toolbar li {
+  margin: 4px 7px 5px 0px;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.sub-section-tools .board-toolbar li {
+  background-color: rgba(128, 128, 128, 0.35);
+  border: none;
+  border-radius: 8px;
+}
+
+.sub-section-tools .board-toolbar li:hover {
+  background-color: rgba(160, 160, 160, 0.5);
+}
+
+.sub-section-tools .board-toolbar li i {
+  color: #fff;
+}
+
+
 .gridster .pane-tools.board-toolbar li {
-  background-color: #fff3e0;
+  background-color: rgba(128, 128, 128, 0.35);
+  border-radius: 8px;
   border: none;
 }
 
 .gridster .pane-tools.board-toolbar li:hover {
-  background-color: #ffe0b2;
+  background-color: rgba(160, 160, 160, 0.5);
 }
 
 .gridster .pane-tools.board-toolbar li i {

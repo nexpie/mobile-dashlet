@@ -851,4 +851,15 @@ ul.tagit li.tagit-choice.remove {
   color: #0690f2 !important;
 }
 
+/* ========== PANE EDIT (orange) - Light Theme ========== */
+.pane-enter,
+.gridster .pane-tools.board-toolbar li {
+  background-color: #fff3e0 !important;
+}
+
+.pane-enter:hover,
+.gridster .pane-tools.board-toolbar li:hover {
+  background-color: #ffe0b2 !important;
+}
+
 html{background-color:#fff}
