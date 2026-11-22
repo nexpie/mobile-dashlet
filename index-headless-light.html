@@ -11,116 +11,24 @@
       content="width = device-width, initial-scale = 1, maximum-scale = 1, user-scalable = no"
     />
 
-    <link href="css/freeboard-light.min.css" rel="stylesheet" />
-    <link href="css/nexpie.css" rel="stylesheet" />
-    <link href="css/nexpie_theme.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link href="dashlet.min.css" rel="stylesheet">
+    
+    <link href="theme.light.css" rel="stylesheet" />
+    
+    <style>
+      /* the board is offset by JS (top: 20px) to make room for an admin bar this
+         page does not have: put it as far from the top edge as from the side
+         edges (body border 5px + pane margin 6px) */
+      #board-content {
+        top: 5px !important;
+      }
+    </style>
 
     <!-- remote console debug logging -->
     <!-- <script src="//console.re/connector.js" data-channel="1579-b771-8d8d"  id="consolerescript"></script> -->
 
-    <script src="js/head.js"></script>
-    <script type="text/javascript">
-      head.js(
-        "js/freeboard.thirdparty.min.js",
-        "js/freeboard_plugins.min.js",
-        "js/thirdparty_plugins.js",
-        "js/nexpie_plugins.min.js",
-
-        function () {
-          $(function () {
-            changeTheme("dark");
-            freeboard.setPostMessageCallback((msg) => {
-              if (parentcallback && typeof parentcallback == "function") {
-                parentcallback(msg);
-              }
-              if (typeof messageHandler != "undefined") {
-                if (typeof messageHandler.postMessage == "function") {
-                  messageHandler.postMessage(msg);
-                }
-              }
-            });
-            freeboard.initDashCredential(location.hash.substring(1));
-            freeboard.loadFromGraphQL();
-            freeboard.initialize(true);
-          });
-        }
-      );
-
-      function _saveDashboard(confirm) {
-        freeboard.saveConfigToGraphQL(confirm);
-      }
-
-      function _addPane() {
-        freeboard.createPane();
-      }
-
-      function _toggleEditing() {
-        freeboard.toggleEditing();
-      }
-
-      function _setEditing(editing, animate) {
-        freeboard.setEditing(editing, animate);
-      }
-
-      function _resetDashboard(confirm) {
-        freeboard.resetDashboard(confirm, false);
-      }
-
-      let parentcallback = null;
-
-      function _setPostMessageCallback(_parentcallback) {
-        parentcallback = _parentcallback;
-      }
-
-      function _setDashCredential({ credential, forcereload }) {
-        freeboard.setDashCredential({ credential, forcereload });
-      }
-
-      function _reloadDashboard(rev) {
-        freeboard.reloadDashboard(rev);
-      }
-
-      function _isConfigSaved() {
-        return freeboard.isConfigSaved();
-      }
-
-      function _initSetting(option) {
-        freeboard.initSetting(option);
-        option.headless = true;
-        if (option.theme) {
-          changeTheme(option.theme);
-        }
-      }
-
-      function _getEditStatus(option) {
-        return freeboard.getEditStatus(option);
-      }
-
-      function _exportConfig() {
-        return freeboard.exportDashboard();
-      }
-
-      function _importConfig() {
-        return freeboard.loadDashboardFromLocalFile();
-      }
-
-      function closeDialogBox() {
-        return freeboard.closeDialogBox();
-      }
-
-      function widgetSettingCancel() {
-        return freeboard.widgetSettingCancel();
-      }
-
-      function widgetSettingSave() {
-        return freeboard.widgetSettingSave();
-      }
-
-      function jsEditorSave() {
-        return freeboard.jsEditorSave();
-      }
-    </script>
+    
+    
   </head>
   <body style="margin: 0; padding: 0">
     <div id="board-content">
@@ -149,10 +57,17 @@
 
     <script type="text/html" id="pane-template">
       <li data-bind="pane: true">
+        <!-- edit mode, widget sub-mode: enter pane sub-mode (top-left, same row as the first widget's tools) -->
+        <div class="pane-enter" title="Edit pane">
+          <i class="fa fa-chevron-right"></i>
+        </div>
         <!-- Old style: Header with tools inside (when hide_blank_header_bar = false) -->
         <header data-bind="css: { 'pane-header--hidden': !isHeaderVisible() }">
           <h1 data-bind="text: title"></h1>
           <ul class="board-toolbar pane-tools">
+            <li class="pane-exit" title="Back to editing widgets">
+              <i class="fa fa-chevron-left icon-white icon-pane"></i>
+            </li>
             <li data-bind="pluginEditor: {operation: 'add', type: 'widget'}">
               <i class="fa fa-plus icon-white icon-pane"></i>
             </li>
@@ -266,5 +181,105 @@
         </section>
       </li>
     </script>
-  </body>
+  <script src="dashlet.min.js"></script><script>var head={js:function(){var f=arguments[arguments.length-1];if(typeof f==='function')f();}};</script><script type="text/javascript">
+      head.js(
+        "js/freeboard.thirdparty.min.js",
+        "js/freeboard_plugins.min.js",
+        "js/thirdparty_plugins.js",
+        "js/nexpie_plugins.min.js",
+
+        function () {
+          $(function () {
+            changeTheme('light');
+            freeboard.setPostMessageCallback((msg) => {
+              if (parentcallback && typeof parentcallback == "function") {
+                parentcallback(msg);
+              }
+              if (typeof messageHandler != "undefined") {
+                if (typeof messageHandler.postMessage == "function") {
+                  messageHandler.postMessage(msg);
+                }
+              }
+            });
+            freeboard.initDashCredential(location.hash.substring(1));
+            freeboard.loadFromGraphQL();
+            freeboard.initialize(true);
+          });
+        }
+      );
+
+      function _saveDashboard(confirm) {
+        freeboard.saveConfigToGraphQL(confirm);
+      }
+
+      function _addPane() {
+        freeboard.createPane();
+      }
+
+      function _toggleEditing() {
+        freeboard.toggleEditing();
+      }
+
+      function _setEditing(editing, animate) {
+        freeboard.setEditing(editing, animate);
+      }
+
+      function _resetDashboard(confirm) {
+        freeboard.resetDashboard(confirm, false);
+      }
+
+      let parentcallback = null;
+
+      function _setPostMessageCallback(_parentcallback) {
+        parentcallback = _parentcallback;
+      }
+
+      function _setDashCredential({ credential, forcereload }) {
+        freeboard.setDashCredential({ credential, forcereload });
+      }
+
+      function _reloadDashboard(rev) {
+        freeboard.reloadDashboard(rev);
+      }
+
+      function _isConfigSaved() {
+        return freeboard.isConfigSaved();
+      }
+
+      function _initSetting(option) {
+        freeboard.initSetting(option);
+        option.headless = true;
+        if (option.theme) {
+          changeTheme(option.theme);
+        }
+      }
+
+      function _getEditStatus(option) {
+        return freeboard.getEditStatus(option);
+      }
+
+      function _exportConfig() {
+        return freeboard.exportDashboard();
+      }
+
+      function _importConfig() {
+        return freeboard.loadDashboardFromLocalFile();
+      }
+
+      function closeDialogBox() {
+        return freeboard.closeDialogBox();
+      }
+
+      function widgetSettingCancel() {
+        return freeboard.widgetSettingCancel();
+      }
+
+      function widgetSettingSave() {
+        return freeboard.widgetSettingSave();
+      }
+
+      function jsEditorSave() {
+        return freeboard.jsEditorSave();
+      }
+    </script></body>
 </html>

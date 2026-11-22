@@ -1,19 +1,21 @@
 {
   "message": {
-    "en": "Bug fixes and improvements",
-    "th": "แก้ไขปัญหาและปรับปรุง"
+    "en": "Smoother editing and a cleaner look",
+    "th": "ปรับปรุงการแก้ไขให้ลื่นไหลและหน้าตาที่สะอาดขึ้น"
   },
   "bullets": {
     "en": [
-      "Fixed widget action settings.",
-      "Improved mapping between datasources and widgets.",
-      "Improved the image widget."
+      "Editing panes and widgets are now separate modes.",
+      "Panes without a title no longer show a header bar, so dashboards look more compact.",
+      "Charts show the time axis and legend right away, with cleaner lines when there is a lot of data.",
+      "Gauges show a placeholder until data arrives instead of sweeping up from zero."
     ],
     "th": [
-      "แก้ปัญหาการตั้งค่า Widget Action",
-      "ปรับปรุงการจับคู่ระหว่าง Datasource กับ Widget",
-      "ปรับปรุง Image Widget"
+      "แยกโหมดแก้ไข Pane และ Widget ออกจากกัน",
+      "Pane ที่ไม่มีชื่อจะไม่แสดงแถบหัวอีกต่อไป ทำให้ Dashboard กระชับขึ้น",
+      "กราฟแสดงแกนเวลาและ Legend ทันที และเส้นกราฟสะอาดขึ้นเมื่อมีข้อมูลจำนวนมาก",
+      "Gauge แสดงค่าว่างไว้ก่อนจนกว่าข้อมูลจะมา แทนการไล่ค่าขึ้นจากศูนย์"
     ]
   },
-  "version": "1.6.5"
+  "version": "1.7.0"
 }

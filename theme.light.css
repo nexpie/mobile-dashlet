@@ -325,7 +325,7 @@ a:focus.text-button {
 
 /* selected text in dropdown  */
 .styled-select select {
-  background: url(../img/dropdown-arrow.svg) no-repeat right 10px top 10px white;
+  background: url(img/dropdown-arrow.svg) no-repeat right 10px top 10px white;
   border: 1px solid var(--border-color-neutral);
 }
 .styled-select select:hover {
@@ -850,3 +850,5 @@ ul.tagit li.tagit-choice.remove {
 .sub-section-tools .board-toolbar li i {
   color: #0690f2 !important;
 }
+
+html{background-color:#fff}
