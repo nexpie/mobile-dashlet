@@ -7,13 +7,15 @@
     "en": [
       "Edit buttons in the dark theme now use the same soft, rounded look as the light theme.",
       "Pane edit buttons are orange and widget edit buttons are white, so they are easy to tell apart.",
-      "Edit buttons are smaller and closer together, leaving more room for your widgets."
+      "Edit buttons are smaller and closer together, leaving more room for your widgets.",
+      "Enable map dark theme"
     ],
     "th": [
       "ปุ่มแก้ไขในธีมมืดมีลักษณะโปร่งนุ่มและขอบมนเหมือนธีมสว่าง",
       "ปุ่มแก้ไข Pane เป็นสีส้ม และปุ่มแก้ไข Widget เป็นสีขาว แยกออกจากกันได้ง่าย",
-      "ปุ่มแก้ไขเล็กลงและชิดกันมากขึ้น เหลือพื้นที่ให้ Widget มากขึ้น"
+      "ปุ่มแก้ไขเล็กลงและชิดกันมากขึ้น เหลือพื้นที่ให้ Widget มากขึ้น",
+      "แผนที่รองรับการแสดงผลในธีมมืด"
     ]
   },
-  "version": "1.7.2"
+  "version": "1.7.3"
 }
